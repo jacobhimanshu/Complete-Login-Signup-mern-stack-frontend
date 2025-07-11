@@ -5,6 +5,7 @@ import { ToastContainer } from "react-toastify";
 import { handleError, handlesucces } from "../Utils";
 
 const Signup = () => {
+   const BaseUrl=import.meta.env.VITE_API_BASE_URL
   const [signupinfo, setsignupinfo] = useState({
     name: "",
     email: "",
@@ -27,7 +28,7 @@ const Signup = () => {
       return handleError("name ,email,password are required");
     }
     try {
-      const url = "http://localhost:3000/auth/signup";
+      const url =` ${BaseUrl}/auth/signup`;
       const response = await fetch(url, {
         method: "POST",
         headers: {

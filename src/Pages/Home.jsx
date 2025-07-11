@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { handleError, handlesucces } from '../Utils';
 import { ToastContainer } from 'react-toastify';
 const Home = () => {
+  const BaseUrl=import.meta.env.VITE_API_BASE_URL
   const [loggedInUser, setLoggedInUser] = useState('');
   const [products,setproducts] = useState("");
    const navigate = useNavigate();
@@ -20,7 +21,7 @@ const Home = () => {
     
       const  fetchProducts = async() =>{
                   try {
-                    const url = 'http://localhost:3000/products';
+                    const url = `${BaseUrl}/products`;
                     const headers = {
                       headers :{
                         'Authorization':localStorage.getItem('token')

@@ -4,6 +4,7 @@ import { ToastContainer } from 'react-toastify';
 // import { handleError, handleSuccess } from '../utils';
 import { handleError, handlesucces } from "../Utils";
 function Login() {
+   const BaseUrl=import.meta.env.VITE_API_BASE_URL
 
     const [loginInfo, setLoginInfo] = useState({
         email: '',
@@ -27,7 +28,7 @@ function Login() {
             return handleError('email and password are required')
         }
         try {
-            const url = `http://localhost:3000/auth/login`;
+            const url = `${BaseUrl}/auth/login`;
             const response = await fetch(url, {
                 method: "POST",
                 headers: {
